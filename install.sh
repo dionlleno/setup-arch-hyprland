@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # Para o script se algo falhar
+set -e # Para o script se algo falhar
 
 # ====================================================
 #  🛠️  Funções auxiliares
@@ -14,9 +14,9 @@ error() { echo -e "\033[1;31m[✖]\033[0m $1"; }
 info "Instalando pacotes base e utilitários..."
 
 sudo pacman -Syu --needed --noconfirm git base-devel neovim swww stow \
-  xdg-user-dirs rofi waybar xdg-desktop-portal-kde xdg-desktop-portal-gtk \
-  pavucontrol power-profiles-daemon hyprpicker dunst feh nwg-look lxappearance \
-  zsh networkmanager network-manager-applet
+	xdg-user-dirs rofi waybar xdg-desktop-portal-kde xdg-desktop-portal-gtk \
+	pavucontrol power-profiles-daemon hyprpicker dunst feh nwg-look lxappearance \
+	zsh networkmanager network-manager-applet flatpak
 
 success "Pacotes principais instalados!"
 
@@ -32,14 +32,14 @@ success "Diretórios criados e atualizados!"
 #  ⚙️ Variáveis de ambiente
 # ====================================================
 info "Configurando variáveis XDG..."
-echo 'export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/local/share:/usr/share:/var/lib/flatpak/exports/share' | tee -a ~/.bashrc ~/.zshrc >/dev/null
+#echo 'export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/local/share:/usr/share:/var/lib/flatpak/exports/share' | tee -a ~/.bashrc ~/.zshrc >/dev/null
 success "Variáveis adicionadas ao bashrc e zshrc!"
 
 # ====================================================
 #  🧩 Stow - Aplicando configurações dotfiles
 # ====================================================
 info "Aplicando configurações com stow..."
-stow hyprland kitty nvim rofi scripts themes wallpapers waybar
+stow hyprland kitty rofi scripts themes wallpapers waybar
 success "Configurações aplicadas!"
 
 # ====================================================
@@ -102,6 +102,6 @@ success "Oh My Zsh instalado!"
 #  ✅ Finalização
 # ====================================================
 info "Limpeza final..."
-rm -rf /tmp/yay /tmp/Nordzy-icon /tmp/Graphite-gtk-theme
+rm -rf /tmp/yay /tmp/Nordzy-icon /tmp/Graphite-gtk-theme ~/.config/hypr ~/.config/waybar
 success "Instalação concluída com sucesso!"
 echo -e "\n\033[1;32mAmbiente pronto! Reinicie o sistema ou inicie a sessão Wayland.\033[0m"
