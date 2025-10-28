@@ -1,39 +1,46 @@
 #!/usr/bin/env bash
 
-# -------- CONFIG --------
-# Tema opcional do rofi (ou deixe padrão)
-ROFI_THEME="~/.config/rofi/themes/polar-night.rasi"
+# --------------------------------------------------
+# Menu de sessão para Hyprland (usando wofi)
+# --------------------------------------------------
+# Requisitos:
+#   - wofi (ou rofi)
+#   - systemctl
+#   - hyprctl
+#   - hyprlock (opcional)
+# --------------------------------------------------
 
-# Opções do menu
-options=(
-    "⏻  Desligar"
-    "  Reiniciar"
-    "󰤄  Suspender"
-    "󰍃  Hibernar"
-    "󰗽  Bloquear"
-    "󰅚  Cancelar"
+# Ícones bonitinhos (pode mudar conforme seus temas de ícones)
+lock="  Bloquear"
+suspend="󰤄  Suspender"
+hibernate="⏾  Hibernar"
+reboot="󰜉  Reiniciar"
+shutdown="󰐥  Desligar"
+logout="󰍃  Sair"
+
+# Cria o menu
+selected=$(echo -e "$lock\n$suspend\n$hibernate\n$reboot\n$shutdown\n$logout" | \
+rofi -dmenu -theme ~/.config/rofi/themes/gruvbox-dark.rasi -p "Sessão" -theme-str 'window {width: 15em;} listview {lines: 6;}'
 )
 
-# Mostra o menu
-chosen=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p "Power"N)
-# chosen=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -p "Power" -theme "$ROFI_THEME")
-
-case "$chosen" in
-    "⏻  Desligar")
-        systemctl poweroff
+case "$selected" in
+    "$lock")
+        hyprlock
         ;;
-    "  Reiniciar")
-        systemctl reboot
-        ;;
-    "󰤄  Suspender")
+    "$suspend")
         systemctl suspend
         ;;
-    "󰍃  Hibernar")
+    "$hibernate")
         systemctl hibernate
         ;;
-    "󰗽  Bloquear")
-        # Troque pelo seu locker favorito
-        hyprlock &
+    "$reboot")
+        systemctl reboot
+        ;;
+    "$shutdown")
+        systemctl poweroff
+        ;;
+    "$logout")
+        hyprctl dispatch exit
         ;;
     *)
         exit 0
