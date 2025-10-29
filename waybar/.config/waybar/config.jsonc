@@ -7,7 +7,7 @@
   "spacing": 0, // Gaps between modules (4px)
   "margin": 5,
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "custom/media"],
+  "modules-left": ["hyprland/workspaces", "custom/media","custom/waybar-media"],
   "modules-center": ["clock"],
   "modules-right": [
     "wireplumber",
@@ -104,4 +104,12 @@
       "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png",
     },
   },
+  "custom/waybar-media": {
+    "return-type": "json",
+    "exec": "waybar-media.py status",
+    "on-click": "waybar-media.py playpause",
+    "on-scroll-up": "waybar-media.py previous",
+    "on-scroll-down": "waybar-media.py next",
+    "escape": true
+}
 }
