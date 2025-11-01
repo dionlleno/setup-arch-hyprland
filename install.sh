@@ -105,3 +105,9 @@ info "Limpeza final..."
 rm -rf /tmp/yay /tmp/Nordzy-icon /tmp/Graphite-gtk-theme ~/.config/hypr ~/.config/waybar
 success "Instalação concluída com sucesso!"
 echo -e "\n\033[1;32mAmbiente pronto! Reinicie o sistema ou inicie a sessão Wayland.\033[0m"
+
+
+
+# Adicionados depois, falta organizar
+# Atualizar atalhos
+update-desktop-database ~/.local/share/applications/

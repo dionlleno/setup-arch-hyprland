@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Tibia
+Comment=Tibia Client Online
+Exec=/home/dionlleno/Jogos/Tibia/Tibia
+Path=/home/dionlleno/Jogos/Tibia
+Icon=/home/dionlleno/Jogos/Tibia/tibia.ico
+Terminal=false
+Type=Application
+Categories=Game;
