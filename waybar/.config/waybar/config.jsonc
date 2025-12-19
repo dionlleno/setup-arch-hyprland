@@ -7,9 +7,15 @@
   "spacing": 0, // Gaps between modules (4px)
   "margin": 5,
   // Choose the order of the modules
-  "modules-left": ["hyprland/workspaces", "custom/media","custom/waybar-media"],
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/media",
+    "custom/waybar-media",
+  ],
   "modules-center": ["clock"],
   "modules-right": [
+    "custom/wallpaper",
+    "sway/language",
     "wireplumber",
     "backlight",
     "battery",
@@ -110,6 +116,16 @@
     "on-click": "waybar-media.py playpause",
     "on-scroll-up": "waybar-media.py previous",
     "on-scroll-down": "waybar-media.py next",
-    "escape": true
-}
+    "escape": true,
+  },
+  "sway/language": {
+    "format": "{layout}",
+    "tooltip-format": "Current keyboard layout: {layout}",
+    "on-click": "swaymsg input type:keyboard xkb_layout us,br",
+  },
+  "custom/wallpaper": {
+    "format": "󰸉",
+    "tooltip": "Trocar wallpaper",
+    "on-click": "~/.scripts/wallpaper-waybar",
+  },
 }

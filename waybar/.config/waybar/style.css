@@ -1,6 +1,6 @@
 /* === Estilo Geral === */
 * {
-    font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
     font-size: 13px;
     font-weight: bold;
     border-radius: 10px;
@@ -65,6 +65,7 @@ button:hover {
 #custom-media,
 #tray,
 #mode,
+#sway-language,
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
@@ -123,6 +124,10 @@ button:hover {
 }
 
 #pulseaudio {
+    background-color: #83a598; /* azul suave */
+    color: #ebdbb2;
+}
+#sway-language {
     background-color: #83a598; /* azul suave */
     color: #ebdbb2;
 }
@@ -280,4 +285,25 @@ button:hover {
 #custom-menu-group.menu-expanded .menu-item {
     padding: 5px 0;
     font-size: 14px;
+}
+
+#custom-keyboard-layout {
+    padding: 0 10px;
+    color: #ffffff; /* Cor do texto */
+    background: #282828; /* Cor de fundo, opcional */
+    border-radius: 5px; /* Bordas arredondadas, opcional */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+#custom-wallpaper {
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+#sway-language {
+    padding: 0 10px;
+    color: #ffffff; /* Cor do texto (branco) */
+    background: #282828; /* Cor de fundo */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
 }

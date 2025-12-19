@@ -8,15 +8,20 @@
 # Dependências: python3-gi, pillow (opcional), swww
 
 import gi
+
 gi.require_version("Gtk", "3.0")
-from gi.repository import Gtk, GdkPixbuf, GLib
-import os, shutil, subprocess
+import os
+import shutil
+import subprocess
 from pathlib import Path
+
+from gi.repository import GdkPixbuf, GLib, Gtk
 
 WALL_DIR = Path.home() / "Imagens" / "Wallpapers"
 TARGET = WALL_DIR / ".wallpaper"  # caminho final pedido pelo usuário
 THUMB_W = 320
 THUMB_H = 200
+
 
 class ThumbButton(Gtk.EventBox):
     def __init__(self, filepath, pixbuf):
@@ -30,6 +35,7 @@ class ThumbButton(Gtk.EventBox):
         box.pack_start(img, True, True, 0)
         box.pack_start(label, False, False, 0)
         self.add(box)
+
 
 class App(Gtk.Window):
     def __init__(self):
@@ -67,7 +73,9 @@ class App(Gtk.Window):
             if p.is_file() and not p.name.startswith("."):
                 try:
                     # cria thumbnail com GdkPixbuf
-                    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(str(p), THUMB_W, THUMB_H, True)
+                    pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_scale(
+                        str(p), THUMB_W, THUMB_H, True
+                    )
                 except Exception:
                     # se falhar, pula arquivo
                     continue
@@ -91,13 +99,18 @@ class App(Gtk.Window):
             # chama swww para aplicar
             subprocess.run(["swww", "img", str(TARGET)], check=False)
             # opcional: show notification (se notify-send existir)
-            subprocess.run(["notify-send", "Wallpaper aplicado", os.path.basename(filepath)], check=False)
+            subprocess.run(
+                ["notify-send", "Wallpaper aplicado", os.path.basename(filepath)],
+                check=False,
+            )
         except Exception as e:
-            dialog = Gtk.MessageDialog(parent=self,
-                                       flags=0,
-                                       message_type=Gtk.MessageType.ERROR,
-                                       buttons=Gtk.ButtonsType.OK,
-                                       text="Erro ao aplicar wallpaper")
+            dialog = Gtk.MessageDialog(
+                parent=self,
+                flags=0,
+                message_type=Gtk.MessageType.ERROR,
+                buttons=Gtk.ButtonsType.OK,
+                text="Erro ao aplicar wallpaper",
+            )
             dialog.format_secondary_text(str(e))
             dialog.run()
             dialog.destroy()
@@ -105,14 +118,20 @@ class App(Gtk.Window):
     def apply_existing(self):
         if TARGET.exists():
             subprocess.run(["swww", "img", str(TARGET)], check=False)
-            subprocess.run(["notify-send", "Wallpaper reaplicado", str(TARGET)], check=False)
+            subprocess.run(
+                ["notify-send", "Wallpaper reaplicado", str(TARGET)], check=False
+            )
         else:
-            dialog = Gtk.MessageDialog(parent=self, flags=0,
-                        message_type=Gtk.MessageType.INFO,
-                        buttons=Gtk.ButtonsType.OK,
-                        text="Arquivo .wallpaper não existe")
+            dialog = Gtk.MessageDialog(
+                parent=self,
+                flags=0,
+                message_type=Gtk.MessageType.INFO,
+                buttons=Gtk.ButtonsType.OK,
+                text="Arquivo .wallpaper não existe",
+            )
             dialog.run()
             dialog.destroy()
+
 
 if __name__ == "__main__":
     # checar e criar pasta se necessário

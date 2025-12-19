@@ -211,4 +211,9 @@ rm -rf "$tmp_dir"
 update-desktop-database ~/.local/share/applications/
 success "Instalação concluída com sucesso!"
 
+yay -S sddm-theme-sugar-candy
+
+sudo ln -s ~/Imagens/Wallpapers/.wallpaper /usr/share/sddm/themes/Sugar-Candy/Backgrounds/.wallpaper
+sudo ln -s ~/Imagens/Wallpapers/.wallpaper /usr/share/hypr/wall0.png
+
 echo -e "\n\033[1;32mAmbiente pronto! Reinicie o sistema ou inicie a sessão Wayland.\033[0m"
