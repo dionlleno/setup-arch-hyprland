@@ -18,6 +18,7 @@ from pathlib import Path
 from gi.repository import GdkPixbuf, GLib, Gtk
 
 WALL_DIR = Path.home() / "Imagens" / "Wallpapers"
+SDDM_WALLPAPER = Path("/usr/share/sddm/themes/nord/background.png")
 TARGET = WALL_DIR / ".wallpaper"  # caminho final pedido pelo usuário
 THUMB_W = 320
 THUMB_H = 200
@@ -92,17 +93,33 @@ class App(Gtk.Window):
         self.flow.show_all()
 
     def on_click(self, widget, event, filepath):
-        # copia e aplica
         try:
-            # sobrescreve .wallpaper
+            # Copia para o wallpaper do usuário
             shutil.copy2(filepath, TARGET)
-            # chama swww para aplicar
+
+            # Aplica no Hyprland via swww
             subprocess.run(["swww", "img", str(TARGET)], check=False)
-            # opcional: show notification (se notify-send existir)
+
+            # Atualiza wallpaper do SDDM (necessita root)
             subprocess.run(
-                ["notify-send", "Wallpaper aplicado", os.path.basename(filepath)],
+                [
+                    "pkexec",
+                    "/usr/local/bin/update-sddm-wallpaper",
+                    str(filepath),
+                ],
                 check=False,
             )
+
+
+            subprocess.run(
+                [
+                    "notify-send",
+                    "Wallpaper aplicado",
+                    "Hyprland e SDDM atualizados",
+                ],
+                check=False,
+            )
+
         except Exception as e:
             dialog = Gtk.MessageDialog(
                 parent=self,
@@ -114,6 +131,7 @@ class App(Gtk.Window):
             dialog.format_secondary_text(str(e))
             dialog.run()
             dialog.destroy()
+
 
     def apply_existing(self):
         if TARGET.exists():

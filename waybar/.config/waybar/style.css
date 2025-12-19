@@ -1,348 +1,182 @@
-/* === Estilo Geral === */
+/* ================================
+   Nord Theme – Waybar (GTK CSS)
+   ================================ */
+
+/* === Paleta Nord (GTK) === */
+@define-color nord0  #2e3440;
+@define-color nord1  #3b4252;
+@define-color nord2  #434c5e;
+@define-color nord3  #4c566a;
+
+@define-color nord4  #d8dee9;
+@define-color nord5  #e5e9f0;
+@define-color nord6  #eceff4;
+
+@define-color nord7  #8fbcbb;
+@define-color nord8  #88c0d0;
+@define-color nord9  #81a1c1;
+@define-color nord10 #5e81ac;
+
+@define-color nord11 #bf616a;
+@define-color nord12 #d08770;
+@define-color nord13 #ebcb8b;
+@define-color nord14 #a3be8c;
+@define-color nord15 #b48ead;
+
+/* === Estilo Global === */
 * {
-    font-family: "JetBrainsMono Nerd Font", sans-serif;
-    font-size: 13px;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: 0.2s ease-in-out;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
 }
 
-/* === Janela Principal (Waybar) === */
+/* === Waybar === */
 window#waybar {
-    background-color: transparent;
-    color: #ebdbb2; /* texto claro GruvBox Dark */
-    transition-property: background-color;
-    transition-duration: 0.5s;
+  background: transparent;
+  color: @nord4;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-/* === Botões === */
-button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
-}
-
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
-}
-
+/* === Workspaces === */
 #workspaces button {
-    padding: 0 5px;
-    background-color: transparent;
-    color: #ebdbb2;
-    border-radius: 5px;
+  padding: 0 6px;
+  background: transparent;
+  color: @nord4;
+  border-radius: 6px;
 }
 
 #workspaces button:hover {
-    background: #3c3836; /* fundo escuro */
+  background: @nord1;
 }
 
 #workspaces button.active {
-    background-color: #504945; /* cinza médio */
-    color: #ebdbb2; /* texto claro */
+  background: @nord2;
+  color: @nord6;
+  box-shadow: inset 0 -3px @nord8;
 }
 
-#workspaces button.urgent {
-    background-color: #fb4934; /* vermelho */
-}
-
-/* === Indicadores de Sistema === */
+/* === Base dos módulos === */
 #clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
+#tray,
+#wireplumber,
 #backlight,
 #network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#sway-language,
-#idle_inhibitor,
-#scratchpad,
+#battery,
 #power-profiles-daemon,
-#mpd {
-    padding: 0 13px;
-    color: #ebdbb2;
-    margin: 0 5px;
-    background-color: #3c3836; /* fundo escuro */
-}
-
-#battery {
-    background-color: #3c3836;
-    color: #ebdbb2;
-}
-#battery:hover {
-    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
-}
-
-#battery.charging {
-    background-color: #98971a;
-}
-#battery.plugged {
-    background-color: #98971a; /* verde */
-    color: #3c3836; /* texto escuro */
-}
-
-#battery.critical:not(.charging) {
-    background-color: #fb4934; /* vermelho */
-    animation: blink 0.5s steps(12) infinite alternate;
-}
-
-#battery.full {
-    background-color: #98971a;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ebdbb2;
-        color: #3c3836;
-        box-shadow: inset 0 -3px #458588;
-    }
-}
-
-#backlight {
-    background-color: #3c3836;
-    color: #ebdbb2;
-}
-#backlight:hover {
-    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
-}
-
-#cpu {
-    background-color: #b8bb26; /* verde */
-    color: #3c3836;
-}
-
-#memory {
-    background-color: #d3869b; /* roxo */
-}
-
-#disk {
-    background-color: #fe8019; /* laranja */
-}
-
-#temperature {
-    background-color: #fabd2f; /* amarelo */
-}
-
-#temperature.critical {
-    background-color: #fb4934; /* vermelho */
-}
-
-#network {
-    background-color: #d65d0e; /* azul */
-}
-#network:hover {
-    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
-}
-
-#network.disconnected {
-    background-color: #cc241d; /* vermelho */
-}
-
-#pulseaudio {
-    background-color: #83a598; /* azul suave */
-    color: #ebdbb2;
-}
+#custom-media,
+#custom-waybar-media,
 #sway-language {
-    background-color: #83a598; /* azul suave */
-    color: #ebdbb2;
+  padding: 0 12px;
+  margin: 0 5px;
+  background: @nord1;
+  color: @nord4;
 }
 
-#pulseaudio.muted {
-    background-color: #504945;
-    color: #ebdbb2;
+/* === Clock === */
+#clock {
+  background: @nord2;
+  color: @nord6;
 }
 
+/* === Áudio === */
 #wireplumber {
-    background-color: #b16286; /* roxo */
-    color: #ebdbb2;
-}
-
-#wireplumber:hover {
-    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
+  background: @nord9;
+  color: @nord0;
 }
 
 #wireplumber.muted {
-    background-color: #cc241d;
+  background: @nord11;
+  color: @nord6;
 }
 
-#custom-media {
-    background-color: #3c3836;
-    color: #ebdbb2;
-    min-width: 100px;
+/* === Brilho === */
+#backlight {
+  background: @nord7;
+  color: @nord0;
 }
 
-#custom-media.custom-spotify {
-    background-color: #b8bb26;
+/* === Rede === */
+#network {
+  background: @nord8;
+  color: @nord0;
 }
 
-#custom-media.custom-vlc {
-    background-color: #fabd2f;
+#network.disconnected {
+  background: @nord11;
+  color: @nord6;
 }
 
-#tray {
-    background-color: #3c3836;
-    color: #ebdbb2;
-}
-#tray:hover {
-    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
+/* === Bateria === */
+#battery {
+  background: @nord14;
+  color: @nord0;
 }
 
-#tray > .needs-attention {
-    background-color: #fb4934;
-    box-shadow: inset 0 -3px #458588;
+#battery.charging,
+#battery.plugged {
+  background: @nord13;
 }
 
-#idle_inhibitor {
-    background-color: #504945;
+#battery.critical:not(.charging) {
+  background: @nord11;
+  color: @nord6;
+  animation: blink 0.7s infinite alternate;
 }
 
-#idle_inhibitor.activated {
-    background-color: #ebdbb2;
-    color: #3c3836;
+@keyframes blink {
+  to {
+    background: @nord11;
+    color: @nord6;
+  }
 }
 
-#mpd {
-    background-color: #3c3836;
-    color: #458588;
+/* === Perfis de energia === */
+#power-profiles-daemon {
+  background: @nord10;
+  color: @nord6;
 }
 
-#mpd.disconnected {
-    background-color: #fb4934;
-}
-
-#mpd.paused {
-    background-color: #b8bb26;
-}
-
-#language {
-    background-color: #ebdbb2;
-    background: #504945;
-    color: #458588;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #3c3836;
-    color: #ebdbb2;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label.locked {
-    background: #504945;
-}
-
-#scratchpad {
-    background: #3c3836;
-}
-
-#scratchpad.empty {
-    background-color: transparent;
-}
-
-#privacy-item.screenshare {
-    background-color: #fe8019;
-}
-
-#privacy-item.audio-in {
-    background-color: #b8bb26;
-}
-
-#privacy-item.audio-out {
-    background-color: #83a598;
-}
-
-/* === Padrões Energéticos === */
 #power-profiles-daemon.power-saver {
-    background-color: #98971a;
-    color: #ebdbb2;
-    box-shadow: inset 0 -3px #458588;
+  background: @nord14;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #d79921;
-    color: #ebdbb2;
-    box-shadow: inset 0 -3px #fe8019;
+  background: @nord13;
+  color: @nord0;
 }
 
 #power-profiles-daemon.performance {
-    background-color: #cc241d;
-    color: #ebdbb2;
-    box-shadow: inset 0 -3px #458588;
+  background: @nord11;
 }
 
-#power-profiles-daemon.critical {
-    background-color: #fb4934;
-    color: #ebdbb2;
-    animation: blink 1s infinite alternate;
+/* === Media === */
+#custom-media,
+#custom-waybar-media {
+  background: @nord15;
+  color: @nord6;
+  min-width: 100px;
 }
 
-#power-profiles-daemon {
-    transition:
-        background-color 0.3s ease,
-        color 0.3s ease;
+/* === Tray === */
+#tray {
+  background: @nord1;
+  color: @nord6;
 }
 
-#custom-menu-toggle {
-    background: #504945;
-    color: #ebdbb2;
-    padding: 0 10px;
-    border-radius: 6px;
-    transition: background 0.3s;
+#tray > .needs-attention {
+  background: @nord11;
 }
 
-#custom-menu-toggle:hover {
-    background: #458588;
-}
-
-#custom-menu-group {
-    background: #3c3836;
-    color: #ebdbb2;
-    padding: 0 10px;
-    border-radius: 8px;
-    min-width: 100px;
-    transition: order 0.3s ease;
-}
-
-#custom-menu-group.menu-expanded .menu-item {
-    padding: 5px 0;
-    font-size: 14px;
-}
-
-#custom-keyboard-layout {
-    padding: 0 10px;
-    color: #ffffff; /* Cor do texto */
-    background: #282828; /* Cor de fundo, opcional */
-    border-radius: 5px; /* Bordas arredondadas, opcional */
-    font-size: 14px; /* Tamanho da fonte */
-}
-
-#custom-wallpaper {
-    background-color: #3c3c3c;
-    color: #ebdbb2;
-    padding: 0 10px;
-    font-size: 16px;
-}
-
+/* === Idioma === */
 #sway-language {
-    background-color: #ebdbb2;
-    padding: 0 10px;
-    color: #ffffff; /* Cor do texto (branco) */
-    background: #282828; /* Cor de fundo */
-    border-radius: 5px; /* Bordas arredondadas */
-    font-size: 16px; /* Tamanho da fonte */
+  background: @nord3;
+  color: @nord6;
+}
+
+#custom-power {
+  padding: 0 12px;
+  background: @nord11;
+  color: @nord6;
+  border-radius: 8px;
 }

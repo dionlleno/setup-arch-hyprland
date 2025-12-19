@@ -1,0 +1,84 @@
+/* ======================================
+   Rofi Power Menu - Nord Polar Night
+   ====================================== */
+
+* {
+    font: "JetBrainsMono Nerd Font 10";
+
+    bg: #2e3440;
+    bg-alt: #3b4252;
+    fg: #d8dee9;
+    fg-alt: #e5e9f0;
+
+    blue: #88c0d0;
+    red: #bf616a;
+    green: #a3be8c;
+    yellow: #ebcb8b;
+    purple: #b48ead;
+
+    border-color: #4c566a;
+    selected-bg: #434c5e;
+}
+
+window {
+    width: 360px;
+    padding: 20px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @border-color;
+    border-radius: 12px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 12px;
+    background-color: @bg;
+}
+
+inputbar {
+    padding: 10px;
+    background-color: @bg-alt;
+    border-radius: 8px;
+}
+
+prompt {
+    text-color: @blue;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+entry {
+    text-color: @fg;
+    background-color: transparent;
+}
+
+listview {
+    lines: 4;
+    spacing: 10px;
+    background-color: transparent;
+}
+
+element {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: transparent;
+    text-color: @fg;
+}
+
+element selected {
+    background-color: @selected-bg;
+    text-color: @fg-alt; 
+}
+
+element-text {
+    text-color: @fg;
+    horizontal-align: 0.0;
+    vertical-align: 0.5;
+    background-color: transparent;
+}
+element-text selected {
+    text-color: @blue;
+    horizontal-align: 0.0;
+    vertical-align: 0.5;
+    background-color: transparent;
+}

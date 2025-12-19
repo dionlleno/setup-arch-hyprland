@@ -1,32 +1,39 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 WALL_DIR="$HOME/Imagens/Wallpapers"
-WALL_LINK="$HOME/Imagens/Wallpapers/.wallpaper"
+CACHE="$HOME/.cache/wallpaper-thumbs"
+CURRENT="$WALL_DIR/.wallpaper"
 
-selected=$(find -L "$WALL_DIR" -type f \
-  ! -name ".wallpaper" \
-  \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) \
-  | sort \
-  | fzf \
-      --prompt="🖼 Wallpaper: " \
-      --height=80% \
-      --layout=reverse \
-      --border \
-      --preview '
-        img="$(readlink -f "{}")"
-        kitty +kitten icat --clear --transfer-mode=file "$img" 2>/dev/null \
-        || echo "Preview indisponível (instale imagemagick)"
-      ' \
-      --preview-window=right:60%
-)
+mkdir -p "$CACHE"
+
+entries=""
+
+for img in "$WALL_DIR"/*.{jpg,png,webp}; do
+    [ -f "$img" ] || continue
+    name=$(basename "$img")
+    thumb="$CACHE/$name.png"
+
+    # cria thumbnail se não existir
+    if [ ! -f "$thumb" ]; then
+        magick "$img" -resize 256x256 "$thumb"
+    fi
+
+    # formato: label \0icon\x1fPATH
+    entries+="$name\0icon\x1f$thumb\n"
+done
+
+selected=$(printf "%b" "$entries" \
+    | rofi -dmenu \
+        -i \
+        -p "🖼 Wallpaper" \
+        -show-icons \
+        -theme ~/.config/rofi/seletor-wallpaper.rasi)
 
 [ -z "$selected" ] && exit 0
 
-ln -sf "$selected" "$WALL_LINK"
+cp "$WALL_DIR/$selected" "$CURRENT"
 
-swww img "$selected" \
-  --transition-type any \
-  --transition-fps 60 \
-  --transition-duration 0.8
-
-exit 0
+swww img "$CURRENT" \
+    --transition-type=center \
+    --transition-fps=60 \
+    --transition-duration=0.7

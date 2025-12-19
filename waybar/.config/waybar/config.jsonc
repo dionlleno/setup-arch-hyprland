@@ -1,85 +1,93 @@
-// -*- mode: jsonc -*-
+// ===============================
+// Waybar Config – Hyprland (Nord)
+// ===============================
 {
-  // "layer": "top", // Waybar at top layer
-  // "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 25, // Waybar height (to be removed for auto height)
-  // "width": 1280, // Waybar width
-  "spacing": 0, // Gaps between modules (4px)
+  "height": 25,
+  "spacing": 0,
   "margin": 5,
-  // Choose the order of the modules
+
   "modules-left": [
     "hyprland/workspaces",
     "custom/media",
-    "custom/waybar-media",
+    "custom/waybar-media"
   ],
+
   "modules-center": ["clock"],
+
   "modules-right": [
     "tray",
-    //"custom/wallpaper",
     "sway/language",
     "wireplumber",
     "backlight",
     "network",
     "battery",
     "power-profiles-daemon",
+    "custom/power"
   ],
+
   "clock": {
-    // "timezone": "America/New_York",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}",
+    "format-alt": "{:%Y-%m-%d}"
   },
+
   "backlight": {
-    // "device": "acpi_video1",
     "format": "{percent}% {icon}",
-    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
+
   "battery": {
     "states": {
-      // "good": 95,
       "warning": 30,
-      "critical": 15,
+      "critical": 15
     },
     "format": "{capacity}% {icon}",
-    "format-full": "{capacity}% {icon}",
     "format-charging": "{capacity}% ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": ["", "", "", "", ""],
+    "format-icons": ["", "", "", "", ""]
   },
+
   "power-profiles-daemon": {
     "format": "{icon}",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
     "format-icons": {
       "default": "",
       "performance": "",
       "balanced": "",
-      "power-saver": "",
-    },
+      "power-saver": ""
+    }
   },
+
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{essid} ",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
+
   "custom/media": {
     "format": "{icon} {text}",
     "return-type": "json",
     "max-length": 40,
     "format-icons": {
       "spotify": "",
-      "default": "🎜",
+      "default": "🎜"
     },
     "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
-    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
   },
+
+  "custom/waybar-media": {
+    "return-type": "json",
+    "exec": "waybar-media.py status",
+    "on-click": "waybar-media.py playpause",
+    "on-scroll-up": "waybar-media.py previous",
+    "on-scroll-down": "waybar-media.py next",
+    "escape": true
+  },
+
   "hyprland/workspaces": {
     "format": "{name}",
     "format-icons": {
@@ -89,43 +97,30 @@
       "4": "",
       "5": "",
       "active": "",
-      "default": "",
-    },
-    "persistent-workspaces": {
-      //"*": 5, // 5 workspaces by default on every monitor
-      //"DP-1": 3, // but only three on HDMI-A-1
-    },
+      "default": ""
+    }
   },
+
   "wireplumber": {
     "format": "{volume}% {icon}",
     "format-muted": "",
     "on-click": "pavucontrol",
-    "format-icons": ["", "", ""],
+    "format-icons": ["", "", ""]
   },
+
   "tray": {
     "icon-size": 21,
-    "spacing": 10,
-    "icons": {
-      "blueman": "bluetooth",
-      "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png",
-    },
+    "spacing": 10
   },
-  "custom/waybar-media": {
-    "return-type": "json",
-    "exec": "waybar-media.py status",
-    "on-click": "waybar-media.py playpause",
-    "on-scroll-up": "waybar-media.py previous",
-    "on-scroll-down": "waybar-media.py next",
-    "escape": true,
-  },
+
   "sway/language": {
     "format": "{layout}",
     "tooltip-format": "Current keyboard layout: {layout}",
-    "on-click": "swaymsg input type:keyboard xkb_layout us,br",
+    "on-click": "swaymsg input type:keyboard xkb_layout us,br"
   },
-  "custom/wallpaper": {
-    "format": "󰸉",
-    "tooltip": "Trocar wallpaper",
-    "on-click": "~/.scripts/wallpaper-waybar",
-  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": "Menu de energia",
+    "on-click": "~/.scripts/power-menu.sh"
+  }
 }
