@@ -81,7 +81,6 @@ button:hover {
     color: #ebdbb2;
 }
 #battery:hover {
-    background: inherit;
     box-shadow: inset 0 -3px #458588; /* azul GruvBox */
 }
 
@@ -115,7 +114,6 @@ button:hover {
     color: #ebdbb2;
 }
 #backlight:hover {
-    background: inherit;
     box-shadow: inset 0 -3px #458588; /* azul GruvBox */
 }
 
@@ -171,7 +169,6 @@ button:hover {
 }
 
 #wireplumber:hover {
-    background: inherit;
     box-shadow: inset 0 -3px #458588; /* azul GruvBox */
 }
 
@@ -196,7 +193,9 @@ button:hover {
 #tray {
     background-color: #3c3836;
     color: #ebdbb2;
-    box-shadow: inset 0 -3px #458588;
+}
+#tray:hover {
+    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
 }
 
 #tray > .needs-attention {
