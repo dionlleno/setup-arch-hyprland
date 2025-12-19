@@ -14,13 +14,13 @@
   ],
   "modules-center": ["clock"],
   "modules-right": [
-    "custom/wallpaper",
+    "tray",
+    //"custom/wallpaper",
     "sway/language",
     "wireplumber",
     "backlight",
-    "battery",
-    "tray",
     "network",
+    "battery",
     "power-profiles-daemon",
   ],
   "clock": {

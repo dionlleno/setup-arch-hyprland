@@ -44,7 +44,7 @@ button:hover {
 
 #workspaces button.active {
     background-color: #504945; /* cinza médio */
-    color: #fbf1c7; /* texto claro */
+    color: #ebdbb2; /* texto claro */
 }
 
 #workspaces button.urgent {
@@ -76,9 +76,20 @@ button:hover {
     background-color: #3c3836; /* fundo escuro */
 }
 
-#battery.charging,
+#battery {
+    background-color: #3c3836;
+    color: #ebdbb2;
+}
+#battery:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
+}
+
+#battery.charging {
+    background-color: #98971a;
+}
 #battery.plugged {
-    background-color: #b8bb26; /* verde */
+    background-color: #98971a; /* verde */
     color: #3c3836; /* texto escuro */
 }
 
@@ -87,11 +98,25 @@ button:hover {
     animation: blink 0.5s steps(12) infinite alternate;
 }
 
+#battery.full {
+    background-color: #98971a;
+}
+
 @keyframes blink {
     to {
         background-color: #ebdbb2;
         color: #3c3836;
+        box-shadow: inset 0 -3px #458588;
     }
+}
+
+#backlight {
+    background-color: #3c3836;
+    color: #ebdbb2;
+}
+#backlight:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
 }
 
 #cpu {
@@ -116,11 +141,14 @@ button:hover {
 }
 
 #network {
-    background-color: #458588; /* azul */
+    background-color: #d65d0e; /* azul */
+}
+#network:hover {
+    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
 }
 
 #network.disconnected {
-    background-color: #fb4934; /* vermelho */
+    background-color: #cc241d; /* vermelho */
 }
 
 #pulseaudio {
@@ -142,8 +170,13 @@ button:hover {
     color: #ebdbb2;
 }
 
+#wireplumber:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
+}
+
 #wireplumber.muted {
-    background-color: #fb4934;
+    background-color: #cc241d;
 }
 
 #custom-media {
@@ -162,10 +195,13 @@ button:hover {
 
 #tray {
     background-color: #3c3836;
+    color: #ebdbb2;
+    box-shadow: inset 0 -3px #458588;
 }
 
 #tray > .needs-attention {
     background-color: #fb4934;
+    box-shadow: inset 0 -3px #458588;
 }
 
 #idle_inhibitor {
@@ -191,6 +227,7 @@ button:hover {
 }
 
 #language {
+    background-color: #ebdbb2;
     background: #504945;
     color: #458588;
     padding: 0 5px;
@@ -232,19 +269,19 @@ button:hover {
 
 /* === Padrões Energéticos === */
 #power-profiles-daemon.power-saver {
-    background-color: #b8bb26;
-    color: #3c3836;
+    background-color: #98971a;
+    color: #ebdbb2;
     box-shadow: inset 0 -3px #458588;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #fabd2f;
-    color: #3c3836;
+    background-color: #d79921;
+    color: #ebdbb2;
     box-shadow: inset 0 -3px #fe8019;
 }
 
 #power-profiles-daemon.performance {
-    background-color: #d3869b;
+    background-color: #cc241d;
     color: #ebdbb2;
     box-shadow: inset 0 -3px #458588;
 }
@@ -296,11 +333,14 @@ button:hover {
 }
 
 #custom-wallpaper {
+    background-color: #3c3c3c;
+    color: #ebdbb2;
     padding: 0 10px;
     font-size: 16px;
 }
 
 #sway-language {
+    background-color: #ebdbb2;
     padding: 0 10px;
     color: #ffffff; /* Cor do texto (branco) */
     background: #282828; /* Cor de fundo */
