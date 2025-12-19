@@ -1,0 +1,29 @@
+:root {
+    /* BORDAS */
+    --active-border: #33ccff;
+    --inactive-border: #595959;
+
+    /* OPACIDADES */
+    --active-opacity: 0.75;
+    --inactive-opacity: 0.5;
+
+    /* SOMBRAS */
+    --shadow-color: #1a1a1a;
+
+    /* BLUR */
+    --blur-vibrancy: 0.1696;
+
+    /* Paleta Gruvbox Dark (do seu CSS) */
+    --color-bg-dark: #3c3836;
+    --color-bg-medium: #504945;
+    --color-fg-light: #ebdbb2;
+    --color-fg-lighter: #fbf1c7;
+    --color-red: #fb4934;
+    --color-green: #b8bb26;
+    --color-yellow: #fabd2f;
+    --color-orange: #fe8019;
+    --color-purple: #d3869b;
+    --color-purple-dark: #b16286;
+    --color-blue: #458588;
+    --color-blue-soft: #83a598;
+}

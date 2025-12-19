@@ -1,0 +1,283 @@
+/* === Estilo Geral === */
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+/* === Janela Principal (Waybar) === */
+window#waybar {
+    background-color: transparent;
+    color: #ebdbb2; /* texto claro GruvBox Dark */
+    transition-property: background-color;
+    transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* === Botões === */
+button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #458588; /* azul GruvBox */
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ebdbb2;
+    border-radius: 5px;
+}
+
+#workspaces button:hover {
+    background: #3c3836; /* fundo escuro */
+}
+
+#workspaces button.active {
+    background-color: #504945; /* cinza médio */
+    color: #fbf1c7; /* texto claro */
+}
+
+#workspaces button.urgent {
+    background-color: #fb4934; /* vermelho */
+}
+
+/* === Indicadores de Sistema === */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+    padding: 0 13px;
+    color: #ebdbb2;
+    margin: 0 5px;
+    background-color: #3c3836; /* fundo escuro */
+}
+
+#battery.charging,
+#battery.plugged {
+    background-color: #b8bb26; /* verde */
+    color: #3c3836; /* texto escuro */
+}
+
+#battery.critical:not(.charging) {
+    background-color: #fb4934; /* vermelho */
+    animation: blink 0.5s steps(12) infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ebdbb2;
+        color: #3c3836;
+    }
+}
+
+#cpu {
+    background-color: #b8bb26; /* verde */
+    color: #3c3836;
+}
+
+#memory {
+    background-color: #d3869b; /* roxo */
+}
+
+#disk {
+    background-color: #fe8019; /* laranja */
+}
+
+#temperature {
+    background-color: #fabd2f; /* amarelo */
+}
+
+#temperature.critical {
+    background-color: #fb4934; /* vermelho */
+}
+
+#network {
+    background-color: #458588; /* azul */
+}
+
+#network.disconnected {
+    background-color: #fb4934; /* vermelho */
+}
+
+#pulseaudio {
+    background-color: #83a598; /* azul suave */
+    color: #ebdbb2;
+}
+
+#pulseaudio.muted {
+    background-color: #504945;
+    color: #ebdbb2;
+}
+
+#wireplumber {
+    background-color: #b16286; /* roxo */
+    color: #ebdbb2;
+}
+
+#wireplumber.muted {
+    background-color: #fb4934;
+}
+
+#custom-media {
+    background-color: #3c3836;
+    color: #ebdbb2;
+    min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+    background-color: #b8bb26;
+}
+
+#custom-media.custom-vlc {
+    background-color: #fabd2f;
+}
+
+#tray {
+    background-color: #3c3836;
+}
+
+#tray > .needs-attention {
+    background-color: #fb4934;
+}
+
+#idle_inhibitor {
+    background-color: #504945;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ebdbb2;
+    color: #3c3836;
+}
+
+#mpd {
+    background-color: #3c3836;
+    color: #458588;
+}
+
+#mpd.disconnected {
+    background-color: #fb4934;
+}
+
+#mpd.paused {
+    background-color: #b8bb26;
+}
+
+#language {
+    background: #504945;
+    color: #458588;
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state {
+    background: #3c3836;
+    color: #ebdbb2;
+    padding: 0 0px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+#keyboard-state > label.locked {
+    background: #504945;
+}
+
+#scratchpad {
+    background: #3c3836;
+}
+
+#scratchpad.empty {
+    background-color: transparent;
+}
+
+#privacy-item.screenshare {
+    background-color: #fe8019;
+}
+
+#privacy-item.audio-in {
+    background-color: #b8bb26;
+}
+
+#privacy-item.audio-out {
+    background-color: #83a598;
+}
+
+/* === Padrões Energéticos === */
+#power-profiles-daemon.power-saver {
+    background-color: #b8bb26;
+    color: #3c3836;
+    box-shadow: inset 0 -3px #458588;
+}
+
+#power-profiles-daemon.balanced {
+    background-color: #fabd2f;
+    color: #3c3836;
+    box-shadow: inset 0 -3px #fe8019;
+}
+
+#power-profiles-daemon.performance {
+    background-color: #d3869b;
+    color: #ebdbb2;
+    box-shadow: inset 0 -3px #458588;
+}
+
+#power-profiles-daemon.critical {
+    background-color: #fb4934;
+    color: #ebdbb2;
+    animation: blink 1s infinite alternate;
+}
+
+#power-profiles-daemon {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+#custom-menu-toggle {
+    background: #504945;
+    color: #ebdbb2;
+    padding: 0 10px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+#custom-menu-toggle:hover {
+    background: #458588;
+}
+
+#custom-menu-group {
+    background: #3c3836;
+    color: #ebdbb2;
+    padding: 0 10px;
+    border-radius: 8px;
+    min-width: 100px;
+    transition: order 0.3s ease;
+}
+
+#custom-menu-group.menu-expanded .menu-item {
+    padding: 5px 0;
+    font-size: 14px;
+}

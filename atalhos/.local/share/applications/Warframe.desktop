@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Warframe
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/230410
+Icon=steam_icon_230410
+Terminal=false
+Type=Application
+Categories=Game;

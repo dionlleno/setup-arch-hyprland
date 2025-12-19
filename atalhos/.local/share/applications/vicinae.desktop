@@ -1,0 +1,29 @@
+[Desktop Entry]
+Type=Application
+Name=Vicinae
+GenericName=Vicinae
+NoDisplay=false
+Comment=A focused launcher for your desktop
+Icon=/home/dionlleno/AppImages/.icons/vicinae.png
+TryExec=/home/dionlleno/AppImages/vicinae.appimage
+Exec=env DESKTOPINTEGRATION=1 /home/dionlleno/AppImages/vicinae.appimage server --replace
+Terminal=false
+Categories=Utility;Accessibility;
+StartupWMClass=vicinae
+Actions=open;close;toggle;
+X-AppImage-Version=b2b13cd4c
+
+[Desktop Action open]
+Name=Open Vicinae Window
+Icon=/home/dionlleno/AppImages/.icons/vicinae.png
+Exec=/home/dionlleno/AppImages/vicinae.appimage open
+
+[Desktop Action close]
+Name=Close Vicinae Window
+Icon=/home/dionlleno/AppImages/.icons/vicinae.png
+Exec=/home/dionlleno/AppImages/vicinae.appimage close
+
+[Desktop Action toggle]
+Name=Toggle Vicinae Window
+Icon=/home/dionlleno/AppImages/.icons/vicinae.png
+Exec=/home/dionlleno/AppImages/vicinae.appimage toggle
