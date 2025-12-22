@@ -211,7 +211,16 @@ rm -rf "$tmp_dir"
 update-desktop-database ~/.local/share/applications/
 success "Instalação concluída com sucesso!"
 
+# Adicionado depois
+
+git config --global user.email "dionlleno@proton.me" 
+git config --global user.name "Dionlleno"
+
 yay -S sddm-theme-sugar-candy
+yay -S tty-clock
+yay -S visual-studio-code-bin
+
+sudo echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.d/99-disable-ipv6.conf
 
 sudo ln -s ~/Imagens/Wallpapers/.wallpaper /usr/share/sddm/themes/Sugar-Candy/Backgrounds/.wallpaper
 sudo ln -s ~/Imagens/Wallpapers/.wallpaper /usr/share/hypr/wall0.png

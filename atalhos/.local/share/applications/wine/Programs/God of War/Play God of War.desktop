@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Play God of War
+Exec=env "WINEPREFIX=/home/dionlleno/.wine" wine "C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\God of War\\\\Play God of War.lnk"
+Type=Application
+StartupNotify=true
+Comment=God of War
+Path=/home/dionlleno/Games/God of War
+Icon=1153_GoW.0
+StartupWMClass=gow.exe

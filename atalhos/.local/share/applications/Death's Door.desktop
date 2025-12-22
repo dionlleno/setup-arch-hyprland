@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Death's Door
-Comment=Play this game on Steam
-Exec=steam steam://rungameid/894020
-Icon=steam_icon_894020
-Terminal=false
-Type=Application
-Categories=Game;

@@ -15,6 +15,6 @@ case "$chosen" in
         systemctl reboot
         ;;
     "󰍃 Encerrar sessão")
-        hyprctl dispatch exit
+        systemctl --user exit
         ;;
 esac

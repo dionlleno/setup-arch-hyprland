@@ -1,0 +1,10 @@
+{
+  "notification-center": {
+    "enable": true,
+    "hide-on-clear": false
+  },
+  "notification-history": {
+    "enable": true,
+    "max-count": 100
+  }
+}

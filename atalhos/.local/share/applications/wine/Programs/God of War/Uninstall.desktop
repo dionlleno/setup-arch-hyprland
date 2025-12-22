@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Uninstall
+Exec=env "WINEPREFIX=/home/dionlleno/.wine" wine "C:\\\\ProgramData\\\\Microsoft\\\\Windows\\\\Start Menu\\\\Programs\\\\God of War\\\\Uninstall.lnk"
+Type=Application
+StartupNotify=true
+Comment=Uninstall God of War
+Path=/home/dionlleno/Games/God of War/Uninstall/
+Icon=D116_unins000.0
+StartupWMClass=unins000.exe

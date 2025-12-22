@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Hellblade: Senua's Sacrifice
-Comment=Play this game on Steam
-Exec=steam steam://rungameid/414340
-Icon=steam_icon_414340
-Terminal=false
-Type=Application
-Categories=Game;
