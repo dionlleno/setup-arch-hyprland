@@ -6,20 +6,15 @@
   "spacing": 0,
   "margin": 5,
 
-  "modules-left": [
-    "hyprland/workspaces",
-    "custom/media",
-    "custom/waybar-media"
-  ],
+  "modules-left": ["hyprland/workspaces"],
 
   "modules-center": ["clock"],
 
   "modules-right": [
     "tray",
-    "sway/language",
     "wireplumber",
     "backlight",
-    "network",
+    //"network",
     "battery",
     "power-profiles-daemon",
     "custom/power"
@@ -64,28 +59,7 @@
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
-
-  "custom/media": {
-    "format": "{icon} {text}",
-    "return-type": "json",
-    "max-length": 40,
-    "format-icons": {
-      "spotify": "",
-      "default": "🎜"
-    },
-    "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
-  },
-
-  "custom/waybar-media": {
-    "return-type": "json",
-    "exec": "waybar-media.py status",
-    "on-click": "waybar-media.py playpause",
-    "on-scroll-up": "waybar-media.py previous",
-    "on-scroll-down": "waybar-media.py next",
-    "escape": true
+    "format-alt": "{ifname}: {ipaddr}"
   },
 
   "hyprland/workspaces": {
@@ -109,15 +83,10 @@
   },
 
   "tray": {
-    "icon-size": 21,
+    "icon-size": 18,
     "spacing": 10
   },
 
-  "sway/language": {
-    "format": "{layout}",
-    "tooltip-format": "Current keyboard layout: {layout}",
-    "on-click": "swaymsg input type:keyboard xkb_layout us,br"
-  },
   "custom/power": {
     "format": "⏻",
     "tooltip": "Menu de energia",

@@ -1,27 +1,4 @@
-/* ================================
-   Nord Theme – Waybar (GTK CSS)
-   ================================ */
-
-/* === Paleta Nord (GTK) === */
-@define-color nord0  #2e3440;
-@define-color nord1  #3b4252;
-@define-color nord2  #434c5e;
-@define-color nord3  #4c566a;
-
-@define-color nord4  #d8dee9;
-@define-color nord5  #e5e9f0;
-@define-color nord6  #eceff4;
-
-@define-color nord7  #8fbcbb;
-@define-color nord8  #88c0d0;
-@define-color nord9  #81a1c1;
-@define-color nord10 #5e81ac;
-
-@define-color nord11 #bf616a;
-@define-color nord12 #d08770;
-@define-color nord13 #ebcb8b;
-@define-color nord14 #a3be8c;
-@define-color nord15 #b48ead;
+@import "colors.css";
 
 /* === Estilo Global === */
 * {
@@ -35,25 +12,25 @@
 /* === Waybar === */
 window#waybar {
   background: transparent;
-  color: @nord4;
+  color: @fg;
 }
 
 /* === Workspaces === */
 #workspaces button {
   padding: 0 6px;
-  background: transparent;
-  color: @nord4;
+  background: @comment;
+  color: @fg;
   border-radius: 6px;
 }
 
 #workspaces button:hover {
-  background: @nord1;
+  /* background: @purple;*/
+  box-shadow: inset 0 -3px @purple;
 }
 
 #workspaces button.active {
-  background: @nord2;
-  color: @nord6;
-  box-shadow: inset 0 -3px @nord8;
+  background: @cyan;
+  color: @bg;
 }
 
 /* === Base dos módulos === */
@@ -63,120 +40,100 @@ window#waybar {
 #backlight,
 #network,
 #battery,
-#power-profiles-daemon,
-#custom-media,
-#custom-waybar-media,
-#sway-language {
+#power-profiles-daemon {
   padding: 0 12px;
   margin: 0 5px;
-  background: @nord1;
-  color: @nord4;
+  background: @comment;
+  color: @fg;
 }
 
 /* === Clock === */
 #clock {
-  background: @nord2;
-  color: @nord6;
+  background: @comment;
+  color: @fg;
 }
 
 /* === Áudio === */
 #wireplumber {
-  background: @nord9;
-  color: @nord0;
+  background: @green;
+  color: @bg;
 }
 
 #wireplumber.muted {
-  background: @nord11;
-  color: @nord6;
+  background: @red;
+  color: @fg;
 }
 
 /* === Brilho === */
 #backlight {
-  background: @nord7;
-  color: @nord0;
+  background: @yellow;
+  color: @bg;
 }
 
 /* === Rede === */
 #network {
-  background: @nord8;
-  color: @nord0;
+  background: @cyan;
+  color: @bg;
 }
 
 #network.disconnected {
-  background: @nord11;
-  color: @nord6;
+  background: @red;
+  color: @fg;
 }
 
 /* === Bateria === */
 #battery {
-  background: @nord14;
-  color: @nord0;
+  background: @green;
+  color: @bg;
 }
 
 #battery.charging,
 #battery.plugged {
-  background: @nord13;
+  background: @yellow;
 }
 
 #battery.critical:not(.charging) {
-  background: @nord11;
-  color: @nord6;
+  background: @red;
+  color: @fg;
   animation: blink 0.7s infinite alternate;
-}
-
-@keyframes blink {
-  to {
-    background: @nord11;
-    color: @nord6;
-  }
 }
 
 /* === Perfis de energia === */
 #power-profiles-daemon {
-  background: @nord10;
-  color: @nord6;
+  background: @purple;
+  color: @fg;
 }
 
 #power-profiles-daemon.power-saver {
-  background: @nord14;
+  background: @green;
+  color: @bg;
 }
 
 #power-profiles-daemon.balanced {
-  background: @nord13;
-  color: @nord0;
+  background: @yellow;
+  color: @bg;
 }
 
 #power-profiles-daemon.performance {
-  background: @nord11;
-}
-
-/* === Media === */
-#custom-media,
-#custom-waybar-media {
-  background: @nord15;
-  color: @nord6;
-  min-width: 100px;
+  background: @red;
 }
 
 /* === Tray === */
 #tray {
-  background: @nord1;
-  color: @nord6;
-}
-
-#tray > .needs-attention {
-  background: @nord11;
+  background: @comment;
+  color: @fg;
 }
 
 /* === Idioma === */
 #sway-language {
-  background: @nord3;
-  color: @nord6;
+  background: @comment;
+  color: @fg;
 }
 
+/* === Power === */
 #custom-power {
   padding: 0 12px;
-  background: @nord11;
-  color: @nord6;
+  background: @purple;
+  color: @fg;
   border-radius: 8px;
 }

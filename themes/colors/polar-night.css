@@ -1,9 +1,13 @@
+/* ==============================
+   Nord Polar Night - GTK / Waybar
+   ============================== */
+
 @define-color bg        #2e3440;
 @define-color bg-alt    #3b4252;
 @define-color bg-soft   #434c5e;
 
 @define-color fg        #d8dee9;
-@define-color fg-alt    #4c566a;
+@define-color fg-alt    #e5e9f0;
 
 @define-color comment   #4c566a;
 

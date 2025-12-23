@@ -1,0 +1,22 @@
+/* Dracula Palette - Rofi */
+
+* {
+    bg:        #282A36;
+    bg-alt:    #44475A;
+
+    fg:        #F8F8F2;
+    fg-alt:    #E5E5E5;
+
+    comment:   #6272A4;
+
+    red:       #FF5555;
+    orange:    #FFB86C;
+    yellow:    #F1FA8C;
+    green:     #50FA7B;
+    cyan:      #8BE9FD;
+    purple:    #BD93F9;
+    pink:      #FF79C6;
+
+    border-color: #6272A4;
+    selected-bg:  #44475A;
+}

@@ -1,0 +1,24 @@
+/* ==============================
+   Nord Polar Night - Rofi
+   ============================== */
+
+* {
+    bg:        #2e3440;
+    bg-alt:    #3b4252;
+
+    fg:        #d8dee9;
+    fg-alt:    #e5e9f0;
+
+    comment:   #4c566a;
+
+    red:       #bf616a;
+    orange:    #d08770;
+    yellow:    #ebcb8b;
+    green:     #a3be8c;
+    cyan:      #88c0d0;
+    blue:      #81a1c1;
+    purple:    #b48ead;
+
+    border-color: #4c566a;
+    selected-bg:  #434c5e;
+}

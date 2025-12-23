@@ -5,19 +5,24 @@
 * {
     font: "JetBrainsMono Nerd Font 10";
 
-    bg: #2e3440;
-    bg-alt: #3b4252;
-    fg: #d8dee9;
-    fg-alt: #e5e9f0;
+    bg:        #2e3440;
+    bg-alt:    #3b4252;
 
-    blue: #88c0d0;
-    red: #bf616a;
-    green: #a3be8c;
-    yellow: #ebcb8b;
-    purple: #b48ead;
+    fg:        #d8dee9;
+    fg-alt:    #e5e9f0;
+
+    comment:   #4c566a;
+
+    red:       #bf616a;
+    orange:    #d08770;
+    yellow:    #ebcb8b;
+    green:     #a3be8c;
+    cyan:      #88c0d0;
+    blue:      #81a1c1;
+    purple:    #b48ead;
 
     border-color: #4c566a;
-    selected-bg: #434c5e;
+    selected-bg:  #434c5e;
 }
 
 window {
@@ -42,7 +47,7 @@ inputbar {
 }
 
 prompt {
-    text-color: @blue;
+    text-color: @purple;
     font-weight: bold;
     background-color: transparent;
 }
@@ -76,8 +81,9 @@ element-text {
     vertical-align: 0.5;
     background-color: transparent;
 }
+
 element-text selected {
-    text-color: @blue;
+    text-color: @cyan;
     horizontal-align: 0.0;
     vertical-align: 0.5;
     background-color: transparent;
