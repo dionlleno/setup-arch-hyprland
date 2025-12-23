@@ -55,13 +55,13 @@ window#waybar {
 
 /* === Áudio === */
 #wireplumber {
-  background: @green;
-  color: @bg;
+  background: @cyan;
+  color: @fg-alt;
 }
 
 #wireplumber.muted {
   background: @red;
-  color: @fg;
+  color: @fg-alt;
 }
 
 /* === Brilho === */
@@ -73,28 +73,29 @@ window#waybar {
 /* === Rede === */
 #network {
   background: @cyan;
-  color: @bg;
+  color: @fg-alt;
 }
 
 #network.disconnected {
   background: @red;
-  color: @fg;
+  color: @fg-alt;
 }
 
 /* === Bateria === */
 #battery {
-  background: @green;
-  color: @bg;
+  background: @cyan;
+  color: @fg-alt;
 }
 
 #battery.charging,
 #battery.plugged {
-  background: @yellow;
+  background: @green;
+  color: @fg-alt;
 }
 
 #battery.critical:not(.charging) {
   background: @red;
-  color: @fg;
+  color: @fg-alt;
   animation: blink 0.7s infinite alternate;
 }
 
