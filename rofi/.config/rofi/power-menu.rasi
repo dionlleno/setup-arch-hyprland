@@ -25,6 +25,10 @@
     selected-bg:  #434c5e;
 }
 
+img {
+    background: transparent;
+}
+
 window {
     width: 360px;
     padding: 20px;
