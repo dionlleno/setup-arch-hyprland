@@ -16,3 +16,7 @@ dotfiles/hyprland/
 ├── autostart.conf # apps no boot
 └── exec.conf # exec-once / scripts
 ```
+
+flatpak run app.zen_browser.zen --safe-mode --new-window https://google.com
+
+
