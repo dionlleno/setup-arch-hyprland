@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=No Rest for the Wicked
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1371980
+Icon=steam_icon_1371980
+Terminal=false
+Type=Application
+Categories=Game;
